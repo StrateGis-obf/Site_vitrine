@@ -43,3 +43,4 @@ Ouvrez simplement index.html dans un navigateur, ou lancez un serveur local :
 
 Puis ouvrez http://localhost:8000
 "# Site_vitrine" 
+"# Site_vitrine" 
