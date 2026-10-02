@@ -205,3 +205,273 @@ footer{padding:0 0 46px;text-align:center;color:var(--foot);font-size:.85rem}
 @media(max-width:860px){.stats .wrap{grid-template-columns:1fr}.hero{padding-top:130px}.hint{display:none}.trust{gap:24px}}
 @media(max-width:520px){.steps{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.contact-info,.form-card{padding:36px 24px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001s!important}.rv,.stage,.lead,.ctas,.trust{opacity:1;transform:none}h1 .w span{transform:none}}
+
+/* ============================================ */
+/* ===== SECTION VIDEO PROMOTIONNELLE ===== */
+/* ============================================ */
+.video-section {
+  padding: 120px 0 60px;
+  position: relative;
+}
+
+.video-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.video-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  background: rgba(94, 234, 212, 0.1);
+  border: 1px solid rgba(94, 234, 212, 0.35);
+  color: var(--teal3);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.video-badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ADE80;
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+  animation: ping 2s infinite;
+}
+
+.video-header .sec-h {
+  max-width: none;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+.video-header .sec-h em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--teal), var(--teal3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.video-header .sec-sub {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 56ch;
+}
+
+/* Wrapper avec glow */
+.video-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.video-glow {
+  position: absolute;
+  inset: -30px;
+  border-radius: 40px;
+  background: linear-gradient(135deg, rgba(30, 140, 140, 0.4), rgba(200, 155, 60, 0.3));
+  filter: blur(60px);
+  opacity: 0.6;
+  z-index: -1;
+  animation: videoGlowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes videoGlowPulse {
+  0% { opacity: 0.4; transform: scale(0.98); }
+  100% { opacity: 0.7; transform: scale(1.02); }
+}
+
+/* Cadre style navigateur */
+.video-frame {
+  position: relative;
+  border-radius: 20px;
+  background: var(--fbg);
+  border: 1px solid var(--fbd);
+  box-shadow:
+    0 60px 120px -40px rgba(0, 0, 0, 0.8),
+    0 0 90px -20px rgba(30, 140, 140, 0.35);
+  overflow: hidden;
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+}
+
+.video-frame:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 80px 140px -40px rgba(0, 0, 0, 0.85),
+    0 0 120px -15px rgba(94, 234, 212, 0.5);
+}
+
+/* Barre de titre du navigateur */
+.video-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.78rem;
+  color: var(--mut);
+}
+
+.video-bar i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+
+.video-bar i:nth-child(2) { background: #febc2e; }
+.video-bar i:nth-child(3) { background: #28c840; }
+
+.video-bar span {
+  margin-left: 12px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  background: var(--panel);
+  color: var(--mut);
+}
+
+/* Player vidéo */
+.video-player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--navy2);
+  overflow: hidden;
+}
+
+.video-player video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Bouton play custom (au-dessus de la vidéo) */
+.video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 0;
+  background: linear-gradient(135deg, var(--teal), var(--teal3));
+  color: var(--navy2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 20px 60px -10px rgba(30, 140, 140, 0.8),
+    0 0 0 0 rgba(94, 234, 212, 0.6);
+  transition: all 0.4s var(--ease);
+  animation: videoPlayPulse 2.5s ease-in-out infinite;
+  z-index: 3;
+}
+
+.video-play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow:
+    0 25px 70px -10px rgba(30, 140, 140, 1),
+    0 0 0 20px rgba(94, 234, 212, 0.15);
+}
+
+.video-play-btn svg {
+  width: 36px;
+  height: 36px;
+  margin-left: 6px;
+}
+
+@keyframes videoPlayPulse {
+  0%, 100% {
+    box-shadow:
+      0 20px 60px -10px rgba(30, 140, 140, 0.8),
+      0 0 0 0 rgba(94, 234, 212, 0.6);
+  }
+  50% {
+    box-shadow:
+      0 20px 60px -10px rgba(30, 140, 140, 0.8),
+      0 0 0 20px rgba(94, 234, 212, 0);
+  }
+}
+
+/* Cache le bouton quand la vidéo joue */
+.video-player.playing .video-play-btn {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.6);
+}
+
+/* Overlay sombre quand pas en lecture */
+.video-player::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 13, 24, 0.3), rgba(6, 13, 24, 0.5));
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease);
+}
+
+.video-player.playing::before {
+  opacity: 0;
+}
+
+/* Métadonnées sous la vidéo */
+.video-meta {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.video-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--mut);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.video-meta-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--teal3);
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .video-section {
+    padding: 80px 0 40px;
+  }
+
+  .video-play-btn {
+    width: 70px;
+    height: 70px;
+  }
+
+  .video-play-btn svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .video-meta {
+    gap: 20px;
+  }
+
+  .video-meta-item {
+    font-size: 0.85rem;
+  }
+}

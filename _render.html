@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StrateGis — Vidéo promotionnelle</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;800&family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--n:#060D18;--n2:#0F1E4D;--g:#C89B3C;--g2:#E4C77A;--t:#1E8C8C;--t3:#5EEAD4;--m:#8CA3B8;--e:cubic-bezier(.16,1,.3,1);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#02060C;font-family:Manrope,system-ui,sans-serif;color:#F0F4F8;overflow:hidden}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:8px}
+#v{width:min(100%,1200px);aspect-ratio:16/9;position:relative;overflow:hidden;background:var(--n);container-type:inline-size;border-radius:10px;box-shadow:0 30px 90px -20px #000,0 0 80px -30px #1E8C8C}
+#v:fullscreen{width:100vw;border-radius:0;aspect-ratio:auto;height:100vh}
+.bg{position:absolute;inset:-20%;background:radial-gradient(40% 40% at 30% 35%,#1E8C8C66,transparent),radial-gradient(40% 40% at 72% 65%,#C89B3C44,transparent);animation:sw 5s ease-in-out infinite alternate}
+@keyframes sw{to{transform:rotate(8deg) scale(1.15)}}
+.rays{position:absolute;inset:-60%;background:conic-gradient(transparent 0 8%,#5EEAD41a 11%,transparent 14% 33%,#E4C77A18 36%,transparent 39% 66%,#1E8C8C1a 69%,transparent 72%);animation:rot 9s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.p{position:absolute;bottom:-3cqw;border-radius:50%;animation:fl linear infinite;box-shadow:0 0 1cqw currentColor}
+@keyframes fl{to{transform:translateY(-60cqw);opacity:0}}
+.s{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;visibility:hidden;padding:4cqw}
+.s.on{visibility:visible}
+.s .r,.s .l,.s .rt,.s .z{opacity:0}
+.s.on .r{animation:r .55s var(--e) forwards}.s.on .l{animation:l .55s var(--e) forwards}.s.on .rt{animation:rt .6s var(--e) forwards}.s.on .z{animation:z .6s cubic-bezier(.3,1.6,.5,1) forwards}
+.s.on [style*="--i"]{animation-delay:calc(var(--i)*.12s + .1s)}
+@keyframes r{from{opacity:0;transform:translateY(4cqw)}to{opacity:1;transform:none}}
+@keyframes l{from{opacity:0;transform:translateX(-8cqw)}to{opacity:1;transform:none}}
+@keyframes rt{from{opacity:0;transform:translateX(9cqw) rotate(4deg) scale(.9)}to{opacity:1;transform:none}}
+@keyframes z{from{opacity:0;transform:scale(.2) rotate(-12deg)}to{opacity:1;transform:none}}
+#wp{position:absolute;inset:0;z-index:20;pointer-events:none;background:linear-gradient(100deg,var(--t3),var(--g2));clip-path:inset(0 100% 0 0)}
+#wp.go{animation:wp .55s cubic-bezier(.7,0,.3,1)}
+@keyframes wp{0%{clip-path:inset(0 100% 0 0)}45%{clip-path:inset(0)}100%{clip-path:inset(0 0 0 100%)}}
+.c{position:relative;z-index:2;text-align:center}
+.logo{width:13cqw;height:13cqw;margin:0 auto 2cqw;border-radius:3cqw;background:#F0EBDC;color:var(--n2);font:800 8cqw Sora;display:grid;place-items:center;box-shadow:0 0 8cqw #C89B3C88;position:relative;overflow:hidden}
+.logo::after{content:"";position:absolute;top:12%;left:10%;right:10%;height:10%;background:var(--g);border-radius:.6cqw;transform:rotate(-11deg);transform-origin:right center}
+.logo::before{content:"";position:absolute;bottom:12%;left:10%;right:10%;height:10%;background:var(--g);border-radius:.6cqw;transform:rotate(-11deg);transform-origin:left center}
+h1{font:800 8cqw/1 Sora;letter-spacing:-.04em;display:flex;justify-content:center}
+h1 span{display:inline-block;opacity:0}
+.s.on h1 span{animation:z .5s cubic-bezier(.3,1.6,.5,1) forwards;animation-delay:calc(var(--i)*.05s + .3s)}
+.gd{background:linear-gradient(100deg,var(--g),var(--g2),var(--g));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 1.5s linear infinite}
+@keyframes sh{to{background-position:-200%}}
+.tag{font:300 1.8cqw Sora;letter-spacing:.3em;text-transform:uppercase;color:var(--m);margin-top:1.6cqw}
+.kw{font:800 12cqw/1 Sora;letter-spacing:-.04em;position:absolute;opacity:0;color:#fff;text-shadow:0 0 3cqw currentColor}
+.s.on .kw{animation:kw .5s linear forwards;animation-delay:calc(var(--i)*.42s)}
+@keyframes kw{0%{opacity:0;transform:scale(2.2);filter:blur(1cqw)}15%{opacity:1;transform:scale(1);filter:none}85%{opacity:1}100%{opacity:0;transform:scale(.9)}}
+.sv{display:grid;grid-template-columns:1fr 1.1fr;gap:4cqw;align-items:center;width:100%;position:relative;z-index:2}
+.sv.rv .tx{order:2}
+.bd{display:inline-block;padding:.7cqw 1.8cqw;border-radius:9cqw;background:#5EEAD426;border:1px solid #5EEAD466;color:var(--t3);font:700 1.5cqw Manrope;letter-spacing:.1em;text-transform:uppercase;position:relative}
+.bd::before{content:"";position:absolute;left:-1cqw;top:50%;transform:translateY(-50%);width:.7cqw;height:.7cqw;background:var(--t3);border-radius:50%;box-shadow:0 0 1.5cqw var(--t3);animation:dot 1s infinite}
+@keyframes dot{50%{opacity:.4;transform:translateY(-50%) scale(1.4)}}
+h2{font:800 5cqw/1.04 Sora;letter-spacing:-.03em;margin:1.6cqw 0 1.2cqw}
+.sv p{font-size:1.7cqw;color:var(--m);line-height:1.5}
+.ft{display:flex;flex-wrap:wrap;gap:.8cqw;margin-top:1.8cqw}
+.ft span{padding:.6cqw 1.4cqw;border-radius:9cqw;border:1px solid #fff3;background:#ffffff0d;font:700 1.35cqw Manrope;position:relative;overflow:hidden}
+.ft span::after{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,#5EEAD44d,transparent);animation:shine 2s infinite}
+.ft span:nth-child(2)::after{animation-delay:.3s}
+.ft span:nth-child(3)::after{animation-delay:.6s}
+@keyframes shine{to{left:100%}}
+.vis{position:relative}
+.vis:before{content:"";position:absolute;inset:-2cqw;background:linear-gradient(135deg,#C89B3C66,#1E8C8C66);filter:blur(4cqw);z-index:-1;animation:glow 2s ease-in-out infinite alternate}
+@keyframes glow{to{filter:blur(5cqw);opacity:.7}}
+.fr{position:relative;aspect-ratio:16/9;border-radius:2cqw;overflow:hidden;border:1px solid #fff3;background:#0a1830;animation:fg 1.2s ease-in-out infinite alternate}
+@keyframes fg{to{box-shadow:0 0 5cqw #5EEAD4aa}}
+.fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;animation:kb 3s ease-out forwards}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.12)}}
+.mk{position:absolute;inset:0;padding:2cqw;display:flex;flex-direction:column;gap:1cqw;background:linear-gradient(135deg,#0F1E4D,#060D18)}
+.mk i{display:block;border-radius:.8cqw;background:linear-gradient(90deg,#1E8C8C,#5EEAD4);height:1.4cqw;width:0;animation:bar 1.2s var(--e) forwards}
+@keyframes bar{to{width:var(--w)}}
+.mk .bx{height:7cqw;width:auto;background:#5EEAD41f;border:1px solid #5EEAD44d;opacity:0;animation:r .6s var(--e) forwards;border-radius:1cqw}
+.mk .gr{display:flex;gap:1cqw}.mk .gr .bx{flex:1}
+.mk .ph{width:9cqw;height:17cqw;border-radius:1.6cqw;border:.3cqw solid var(--t3);background:#5EEAD412;padding:1cqw;display:flex;flex-direction:column;gap:.7cqw;opacity:0;animation:r .6s var(--e) forwards}
+.mk .row{flex-direction:row;justify-content:center;align-items:center;gap:2cqw}
+.mk .sb{width:7cqw;background:#5EEAD41f;border-radius:1cqw;height:100%;opacity:0;animation:r .6s forwards}
+.fl{position:absolute;z-index:4;padding:.8cqw 1.5cqw;border-radius:9cqw;background:linear-gradient(135deg,var(--g),var(--g2));color:var(--n);font:800 1.4cqw Sora;box-shadow:0 1cqw 3cqw #0008;animation:bob 1.4s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-1cqw) rotate(-3deg)}}
+.ct{display:grid;grid-template-columns:.85fr 1.15fr;gap:4cqw;align-items:center;width:100%;position:relative;z-index:2}
+.win{background:#060d18ee;border:1px solid #5EEAD44d;border-radius:2cqw;overflow:hidden;position:relative;box-shadow:0 0 5cqw #1E8C8C88;animation:glow 2s ease-in-out infinite alternate}
+.wh{padding:1.2cqw 2cqw;border-bottom:1px solid #fff1;font:700 1.2cqw Sora;color:#fffa;display:flex;gap:.6cqw;align-items:center}
+.wh i{width:1cqw;height:1cqw;border-radius:50%;background:#ff5f57}.wh i+i{background:#febc2e}.wh i+i+i{background:#28c840}
+.wh::after{content:"";width:.7cqw;height:.7cqw;border-radius:50%;background:#4ADE80;margin-left:auto;box-shadow:0 0 1cqw #4ADE80;animation:dot 1.5s infinite}
+#cb{height:22cqw;padding:1.6cqw;display:flex;flex-direction:column;gap:1cqw;overflow:hidden}
+.m{max-width:88%;padding:1cqw 1.4cqw;border-radius:1.4cqw;font-size:1.3cqw;line-height:1.4;white-space:pre-line;animation:r .3s var(--e)}
+.m.u{align-self:flex-end;background:#6C63FF;border-bottom-right-radius:.4cqw}
+.m.a{background:#ffffff10;border:1px solid #5EEAD44d;border-left:.3cqw solid var(--t3);border-bottom-left-radius:.4cqw}
+.m.typing{display:inline-flex;gap:.5cqw;padding:1.2cqw 1.6cqw}
+.m.typing i{width:.8cqw;height:.8cqw;border-radius:50%;background:var(--t3);animation:tb .8s infinite}
+.m.typing i:nth-child(2){animation-delay:.15s}
+.m.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tb{30%{transform:translateY(-.8cqw);opacity:1}}
+.in{margin:0 1.6cqw 1.6cqw;padding:1cqw 1.6cqw;border-radius:9cqw;background:#ffffff10;font-size:1.3cqw;color:var(--m);min-height:3.6cqw;display:flex;align-items:center;gap:.3cqw}
+.in:after{content:"|";color:var(--t3);animation:bl .6s infinite}@keyframes bl{50%{opacity:0}}
+.st{display:grid;grid-template-columns:repeat(4,1fr);gap:2cqw;width:100%;position:relative;z-index:2;text-align:center}
+.st div{padding:3cqw 1.4cqw;border-radius:2cqw;background:#ffffff0d;border:1px solid #5EEAD44d;position:relative;overflow:hidden}
+.st div::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,#5EEAD41a,transparent 70%)}
+.st b{display:block;font:800 5.4cqw Sora;position:relative}.st small{display:block;font-size:1.5cqw;color:var(--m);margin-top:1cqw;position:relative}
+.cta{display:inline-block;margin-top:3cqw;padding:1.8cqw 4cqw;border-radius:9cqw;background:linear-gradient(135deg,var(--t),var(--t3));color:var(--n);font:800 2.2cqw Sora;animation-name:z,pu !important;animation-duration:.6s,1.1s;animation-iteration-count:1,infinite;animation-delay:.8s,1.6s;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,#ffffff99,transparent);animation:shine 1.5s infinite}
+@keyframes pu{50%{box-shadow:0 0 0 2cqw #5EEAD433;transform:scale(1.05)}}
+.ci{margin-top:2.4cqw;font-size:1.9cqw;color:var(--m)}.ci b{color:var(--t3)}
+#bar{position:absolute;left:0;bottom:0;height:.6cqw;width:0;background:linear-gradient(90deg,var(--t),var(--g),var(--t3));background-size:200% 100%;z-index:30;animation:sh 2s linear infinite;box-shadow:0 0 1cqw #5EEAD4}
+#ov{position:absolute;inset:0;z-index:40;background:#060d18f5;backdrop-filter:blur(10px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqw;text-align:center}
+#ov.h{display:none}
+#ov .logo{animation:pu 1.2s infinite}
+#ov .title{font:800 5cqw/1 Sora;letter-spacing:-.03em;display:flex}
+button{font:700 14px Sora,sans-serif;padding:10px 18px;border-radius:30px;border:1px solid #5EEAD466;background:#0F1E4D;color:#fff;cursor:pointer;transition:all .2s}
+button:hover{border-color:var(--t3);transform:translateY(-2px);box-shadow:0 8px 20px -8px var(--t3)}
+button:focus-visible{outline:2px solid var(--g2)}
+#go{font-size:2cqw;padding:1.4cqw 4cqw;background:linear-gradient(135deg,var(--t),var(--t3));color:var(--n);border:0}
+#ct{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+#voice-warn{position:absolute;bottom:2cqw;left:50%;transform:translateX(-50%);padding:.8cqw 2cqw;border-radius:9cqw;background:#C89B3C33;border:1px solid #C89B3C;font-size:1.2cqw;color:var(--g2);z-index:41;display:none}
+@media (prefers-reduced-motion:reduce){.bg,.rays{animation:none}}
+</style></head><body>
+<div id="v">
+<div class="bg"></div><div class="rays"></div><div id="ps"></div>
+
+<!-- Timing d'origine restauré -->
+<section class="s" data-d="5090" data-vo="StrateGis. Votre partenaire digital.">
+ <div class="c"><div class="logo z">S</div>
+ <h1 id="t1"></h1><p class="tag r" style="--i:6">Votre partenaire digital</p></div>
+</section>
+
+<section class="s" data-d="7923" data-vo="Web. Mobile. Desktop. Intelligence artificielle.">
+ <div class="kw" style="--i:0">WEB</div><div class="kw" style="--i:1;color:var(--t3)">MOBILE</div><div class="kw" style="--i:2;color:var(--g2)">DESKTOP</div><div class="kw gd" style="--i:3">IA</div>
+</section>
+
+<section class="s sv-s" data-d="3892" data-vo="Sites vitrines rapides et optimisés." data-k="web">
+ <div class="sv"><div class="tx"><span class="bd l">Web</span><h2 class="l" style="--i:1">Site vitrine</h2><p class="r" style="--i:2">Élégant, rapide et responsive pour attirer vos clients.</p><div class="ft r" style="--i:3"><span>Design sur mesure</span><span>SEO</span><span>Responsive</span></div></div>
+ <div class="vis rt"><div class="fl" style="top:-1.5cqw;right:-1cqw">+ Clients</div><div class="fr"><div class="mk" data-m="web"></div><img src="img/service-web.jpg" alt="" onerror="this.remove()"></div></div></div>
+</section>
+
+<section class="s sv-s" data-d="4108" data-vo="Applications mobiles iOS et Android." data-k="mobile">
+ <div class="sv rv"><div class="tx"><span class="bd l">Mobile · iOS</span><h2 class="l" style="--i:1">Applications mobiles</h2><p class="r" style="--i:2">iOS et Android, publiées sur l'App Store et Google Play.</p><div class="ft r" style="--i:3"><span>Flutter</span><span>Notifications</span><span>Hors-ligne</span></div></div>
+ <div class="vis rt"><div class="fl" style="top:-1.5cqw;left:-1cqw">App Store ✓</div><div class="fr"><div class="mk row" data-m="mobile"></div><img src="img/service-mobile.jpg" alt="" onerror="this.remove()"></div></div></div>
+</section>
+
+<section class="s sv-s" data-d="5116" data-vo="Logiciels desktop pour Windows, Mac et Linux." data-k="desktop">
+ <div class="sv"><div class="tx"><span class="bd l">Desktop</span><h2 class="l" style="--i:1">Applications desktop</h2><p class="r" style="--i:2">Windows, macOS, Linux. Idéal pour vos outils métiers.</p><div class="ft r" style="--i:3"><span>Multi-OS</span><span>Electron / Tauri</span><span>Mises à jour auto</span></div></div>
+ <div class="vis rt"><div class="fl" style="bottom:-1.5cqw;right:-1cqw">3 OS</div><div class="fr"><div class="mk row" data-m="desktop"></div><img src="img/service-desktop.jpg" alt="" onerror="this.remove()"></div></div></div>
+</section>
+
+<section class="s" id="sc" data-d="6724" data-vo="Agents IA. Retrouvez l'information dans vos documents, instantanément.">
+ <div class="ct"><div><span class="bd l">Agents IA · RAG</span><h2 class="l" style="--i:1">Vos documents<br><span class="gd">répondent.</span></h2><p class="r" style="--i:2;font-size:1.7cqw;color:var(--m)">Posez la question. L'IA cherche et cite ses sources.</p></div>
+ <div class="win rt"><div class="fl" style="top:-1.4cqw;right:-1cqw">RAG · IA</div><div class="wh"><i></i><i></i><i></i>&nbsp;Assistant StrateGis</div><div id="cb"></div><div class="in" id="ti"></div></div></div>
+</section>
+
+<section class="s" data-d="4348" data-vo="Une méthode claire, des résultats concrets.">
+ <div class="c" style="width:100%"><h2 class="r">Une méthode claire.</h2>
+ <div class="st">
+  <div class="z" style="--i:1"><b class="gd" data-to="100" data-s="%">0</b><small>Satisfaction</small></div>
+  <div class="z" style="--i:2"><b class="gd" data-to="4" data-s=" pôles">0</b><small>Web · Mobile · Desktop · IA</small></div>
+  <div class="z" style="--i:3"><b class="gd" data-to="24" data-s="h">0</b><small>Réponse à votre devis</small></div>
+  <div class="z" style="--i:4"><b class="gd">∞</b><small>Possibilités</small></div>
+ </div></div>
+</section>
+
+<section class="s" data-d="5884" data-vo="Prêt à démarrer votre projet ? Demandez votre devis gratuit.">
+ <div class="c"><h1 style="font-size:6.6cqw;display:block" class="z">Prêt à démarrer<br>votre <span class="gd" style="opacity:1">projet</span> ?</h1>
+ <div class="cta z">Demander un devis gratuit</div>
+ <p class="ci r" style="--i:6"><b>strategisobf@gmail.com</b> · +226 55 87 49 51</p></div>
+</section>
+
+<div id="wp"></div><div id="bar"></div>
+<div id="ov"><div class="logo">S</div><div class="title"><span>Strate</span><span class="gd">Gis</span></div><button id="go">▶ Lancer la vidéo</button><p class="tag" style="font-size:1.3cqw;letter-spacing:.1em;text-transform:none;margin-top:0">🔊 Activez le son pour la voix off</p></div>
+<div id="voice-warn">⚠️ Voix non disponible — ouvrez dans Chrome ou Edge</div>
+</div>
+<div id="ct"><button id="pp">Pause</button><button id="rp">Rejouer</button><button id="mu">Son : oui</button><button id="fs">Plein écran</button></div>
+<script>
+const $=s=>document.querySelector(s),v=$('#v'),S=[...v.querySelectorAll('.s')],D=S.map(s=>+s.dataset.d),T=D.reduce((a,b)=>a+b,0);
+// Particules
+for(let i=0;i<30;i++){const p=document.createElement('i');p.className='p';const z=.3+Math.random()*.8;const c=Math.random()>.5?'#5EEAD4':'#E4C77A';Object.assign(p.style,{left:Math.random()*100+'%',width:z+'cqw',height:z+'cqw',background:c,color:c,animationDuration:4+Math.random()*5+'s',animationDelay:-Math.random()*8+'s'});$('#ps').appendChild(p)}
+// Titre lettre par lettre
+$('#t1').innerHTML=[...'StrateGis'].map((c,i)=>`<span style="--i:${i}" ${i>5?'class="gd"':''}>${c}</span>`).join('');
+// Maquettes animées
+const bar=(w,d)=>`<i style="--w:${w};animation-delay:${d}s"></i>`,bx=d=>`<div class="bx" style="animation-delay:${d}s"></div>`;
+const M={web:bar('40%',.2)+bar('85%',.4)+bar('60%',.6)+`<div class="gr">${bx(.8)+bx(1)+bx(1.2)}</div>`,
+mobile:[0,.2,.4].map(d=>`<div class="ph" style="animation-delay:${d+.3}s">${bar('90%',d+.6)+bar('60%',d+.8)+bar('80%',d+1)}</div>`).join(''),
+desktop:`<div class="sb"></div><div style="flex:1;display:flex;flex-direction:column;gap:1cqw">${bar('50%',.3)+bar('90%',.5)+bar('70%',.7)}<div class="gr">${bx(.9)+bx(1.1)}</div></div>`};
+document.querySelectorAll('[data-m]').forEach(e=>e.innerHTML=M[e.dataset.m]);
+// Audio
+let ac,mute=false;
+const tone=(f,t,d,g=.07,ty='sine')=>{if(mute||!ac)return;try{const o=ac.createOscillator(),n=ac.createGain(),n0=ac.currentTime+t;o.type=ty;o.frequency.setValueAtTime(f[0],n0);o.frequency.exponentialRampToValueAtTime(f[1]||f[0],n0+d);n.gain.setValueAtTime(g,n0);n.gain.exponentialRampToValueAtTime(.001,n0+d);o.connect(n).connect(ac.destination);o.start(n0);o.stop(n0+d)}catch(e){}};
+const whoosh=()=>tone([700,90],0,.35,.08,'sawtooth'),ping=()=>tone([880,1200],0,.2);
+// VOIX ROBUSTE
+let fr=null,voiceOK=true;
+function lv(){
+ if(!('speechSynthesis' in window)){voiceOK=false;$('#voice-warn').style.display='block';return}
+ const a=speechSynthesis.getVoices();
+ if(a.length===0)return;
+ const rules=[
+  x=>/fr[-_]FR/i.test(x.lang)&&/Google/i.test(x.name),
+  x=>/fr[-_]FR/i.test(x.lang)&&/Microsoft|Natural/i.test(x.name),
+  x=>/fr[-_]FR/i.test(x.lang)&&/Amelie|Thomas|Audrey|Marie|Julie|Denise/i.test(x.name),
+  x=>/fr[-_]FR/i.test(x.lang),
+  x=>/^fr/i.test(x.lang),
+ ];
+ for(const r of rules){const f=a.find(r);if(f){fr=f;console.log('✅ Voix sélectionnée:',f.name,f.lang);return}}
+}
+if('speechSynthesis' in window){
+ lv();
+ speechSynthesis.onvoiceschanged=lv;
+ setTimeout(lv,300);setTimeout(lv,1000);setTimeout(lv,2000);
+}
+const say=t=>{
+ if(mute||!voiceOK)return;
+ if(!('speechSynthesis' in window))return;
+ if(!fr)lv();
+ try{
+  speechSynthesis.cancel();
+  setTimeout(()=>{
+   const u=new SpeechSynthesisUtterance(t);
+   u.lang='fr-FR';u.rate=1.15;u.pitch=1.05;u.volume=1;
+   if(fr)u.voice=fr;
+   u.onerror=(e)=>{console.warn('Voice error:',e);voiceOK=false;$('#voice-warn').style.display='block'};
+   speechSynthesis.speak(u);
+  },100);
+ }catch(e){console.warn(e)}
+};
+// Chat IA
+const CH=[['u','Trouve la politique de télétravail dans nos docs RH.'],['a','🔍 247 documents analysés…'],['a','✅ 3 sources :\n📄 Politique_RH_2024.pdf\n📄 Guide_Employe.docx'],['u','Combien de jours par semaine ?'],['a','📊 3 jours max.\n• 1 jour fixe au bureau\n• Accord du manager']];
+let tm=[];const at=(f,d)=>tm.push(setTimeout(f,d));
+function chat(){
+ const b=$('#cb'),ti=$('#ti');b.innerHTML='';ti.textContent='';
+ let c=250;
+ CH.forEach(([w,x])=>{
+  if(w==='u'){
+   at(()=>{let i=0;const iv=setInterval(()=>{ti.textContent=x.slice(0,++i);if(i>=x.length)clearInterval(iv)},14);tm.push(iv)},c);
+   c+=x.length*14+150;
+  }
+  if(w==='a'){
+   const typ=document.createElement('div');typ.className='m a typing';typ.innerHTML='<i></i><i></i><i></i>';
+   at(()=>{b.appendChild(typ);b.scrollTop=1e5},c);
+   c+=500;
+   at(()=>{typ.remove();const e=document.createElement('div');e.className='m a';e.textContent=x;b.appendChild(e);b.scrollTop=1e5;ping()},c);
+   c+=600;
+  } else {
+   at(()=>{ti.textContent='';const e=document.createElement('div');e.className='m u';e.textContent=x;b.appendChild(e);b.scrollTop=1e5},c);
+   c+=250;
+  }
+ })
+}
+// Moteur
+let cur=-1,t=0,last=0,play=true,run=false;
+function show(i){
+ cur=i;S.forEach((s,k)=>s.classList.remove('on'));
+ const w=$('#wp');w.classList.remove('go');void w.offsetWidth;
+ if(i>0){w.classList.add('go');whoosh()}
+ setTimeout(()=>{
+  if(cur!==i)return;
+  S[i].classList.add('on');
+  S[i].querySelectorAll('.mk,.fr img').forEach(e=>{e.style.animation='none';void e.offsetWidth;e.style.animation=''});
+  S[i].querySelectorAll('[data-to]').forEach(e=>{
+   const to=+e.dataset.to,s=e.dataset.s;let n=0;
+   const iv=setInterval(()=>{n=Math.min(to,n+Math.ceil(to/18));e.textContent=n+s;if(n>=to)clearInterval(iv)},40)
+  });
+  tm.forEach(clearTimeout);tm=[];
+  if(S[i].id==='sc')chat();
+  say(S[i].dataset.vo);
+ },i>0?230:0);
+}
+function loop(n){
+ if(!run)return;
+ if(play){t+=n-last;if(t>=T){t=0;cur=-1}}
+ last=n;
+ let a=0,i=0;
+ for(;i<D.length-1&&t>=a+D[i];i++)a+=D[i];
+ if(i!==cur)show(i);
+ $('#bar').style.width=t/T*100+'%';
+ requestAnimationFrame(loop)
+}
+function start(){t=0;cur=-1;play=true;run=true;$('#pp').textContent='Pause';last=performance.now();requestAnimationFrame(loop)}
+$('#go').onclick=()=>{
+ try{ac=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}
+ tone([523,659],0,.4);tone([659,784],.08,.4);
+ lv();
+ $('#ov').classList.add('h');
+ setTimeout(start,250)
+};
+$('#rp').onclick=()=>{if(!run)return;if('speechSynthesis' in window)speechSynthesis.cancel();t=0;cur=-1;play=true;$('#pp').textContent='Pause'};
+$('#pp').onclick=()=>{play=!play;$('#pp').textContent=play?'Pause':'Lecture';if(!play&&'speechSynthesis' in window)speechSynthesis.cancel()};
+$('#mu').onclick=()=>{mute=!mute;$('#mu').textContent='Son : '+(mute?'non':'oui');if(mute&&'speechSynthesis' in window)speechSynthesis.cancel()};
+$('#fs').onclick=()=>document.fullscreenElement?document.exitFullscreen():v.requestFullscreen&&v.requestFullscreen();
+</script></body></html>

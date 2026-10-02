@@ -89,3 +89,71 @@ const mel=[[261.63,0,.32,.09],[329.63,.16,.32,.09],[392,.32,.32,.09],[523.25,.48
 sb.onclick=()=>{ctx=ctx||new(window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();if(playing)return;playing=true;sb.classList.add('playing');sb.setAttribute('aria-pressed','true');
   mel.forEach(([f,st,d,g])=>{const o=ctx.createOscillator(),n=ctx.createGain(),t=ctx.currentTime+st;o.type='triangle';o.frequency.value=f;n.gain.value=0;o.connect(n);n.connect(ctx.destination);o.start(t);n.gain.linearRampToValueAtTime(g,t+.04);n.gain.exponentialRampToValueAtTime(.0001,t+d);o.stop(t+d+.05)});
   setTimeout(()=>{playing=false;sb.classList.remove('playing');sb.setAttribute('aria-pressed','false')},2100)};
+
+/* ============================================ */
+/* ===== VIDEO PROMO ===== */
+/* ============================================ */
+(function() {
+  const video = document.getElementById('promo-video');
+  const player = video ? video.closest('.video-player') : null;
+  const playBtn = document.getElementById('video-play-btn');
+
+  if (!video || !player || !playBtn) return;
+
+  // Click sur le bouton play → lance la vidéo
+  playBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    video.play();
+  });
+
+  // Click sur la vidéo → toggle play/pause
+  video.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+
+  // Synchronise la classe 'playing' avec l'état de la vidéo
+  video.addEventListener('play', () => {
+    player.classList.add('playing');
+  });
+
+  video.addEventListener('pause', () => {
+    player.classList.remove('playing');
+  });
+
+  video.addEventListener('ended', () => {
+    player.classList.remove('playing');
+    video.currentTime = 0;
+  });
+
+  // Auto-play au scroll (une seule fois, sans son)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !video.dataset.autoplayed) {
+        video.dataset.autoplayed = 'true';
+        // Petit délai pour laisser le scroll finir
+        setTimeout(() => {
+          if (video.paused && !video.dataset.userPaused) {
+            // Optionnel : décommentez pour activer l'autoplay silencieux
+            // video.muted = true;
+            // video.play().catch(() => {});
+          }
+        }, 800);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(player);
+
+  // Mémorise si l'utilisateur a mis en pause manuellement
+  video.addEventListener('pause', () => {
+    if (!video.ended) video.dataset.userPaused = 'true';
+  });
+
+  video.addEventListener('play', () => {
+    delete video.dataset.userPaused;
+  });
+})();

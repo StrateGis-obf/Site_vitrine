@@ -104,6 +104,16 @@
       "inLanguage": "fr-FR"
     },
     {
+      "@type": "VideoObject",
+      "name": "StrateGis — Vidéo promotionnelle",
+      "description": "Présentation des services StrateGis : sites vitrines, applications mobiles, logiciels desktop et agents IA conversationnels.",
+      "thumbnailUrl": "https://strategis-of.netlify.app/img/og-image.jpg",
+      "contentUrl": "https://strategis-of.netlify.app/videos/StratePresent.mp4",
+      "uploadDate": "2025-01-01",
+      "duration": "PT22S",
+      "publisher": { "@id": "https://strategis-of.netlify.app/#organization" }
+    },
+    {
       "@type": "Service",
       "serviceType": "Développement de site vitrine",
       "provider": { "@id": "https://strategis-of.netlify.app/#organization" },
@@ -217,6 +227,58 @@
       <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Livraison rapide</div>
       <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Accompagnement inclus</div>
       <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Code propriétaire</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION VIDEO PROMO ===== -->
+<section class="video-section" id="video">
+  <div class="wrap">
+    <div class="video-header rv">
+      <span class="video-badge">Découvrez StrateGis en 22 secondes</span>
+      <h2 class="sec-h">Nos services en <em>action.</em></h2>
+      <p class="sec-sub">Une présentation rapide de notre expertise : sites vitrines, applications mobiles, logiciels desktop et agents IA.</p>
+    </div>
+
+    <div class="video-wrapper rv">
+      <div class="video-glow"></div>
+      <div class="video-frame">
+        <div class="video-bar">
+          <i></i><i></i><i></i>
+          <span>StrateGis — Vidéo promotionnelle</span>
+        </div>
+        <div class="video-player">
+          <video
+            id="promo-video"
+            poster="img/og-image.jpg"
+            preload="metadata"
+            playsinline
+            controls
+          >
+            <source src="videos/StratePresent.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture vidéo.
+          </video>
+          <button class="video-play-btn" id="video-play-btn" aria-label="Lancer la vidéo">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="video-meta">
+        <div class="video-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>22 secondes</span>
+        </div>
+        <div class="video-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          <span>4 services présentés</span>
+        </div>
+        <div class="video-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span>Voix off incluse</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
