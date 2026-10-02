@@ -1,0 +1,22 @@
+{
+  "name": "StrateGis — Développement Web, Mobile, Desktop & IA",
+  "short_name": "StrateGis",
+  "description": "Sites vitrines, applications mobiles, logiciels desktop et agents IA à Ouagadougou.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060D18",
+  "theme_color": "#060D18",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
