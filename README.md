@@ -42,3 +42,4 @@ Ouvrez simplement index.html dans un navigateur, ou lancez un serveur local :
     python -m http.server 8000
 
 Puis ouvrez http://localhost:8000
+"# Site_vitrine" 
