@@ -92,6 +92,9 @@
     });
   });
   targets = targets.concat(splits, footLogo ? [footLogo] : []);
+  // Tout élément .rv non listé ci-dessus (stats, vitrine, bandeau…) doit aussi être révélé,
+  // sinon il reste invisible (opacity:0)
+  $$('.rv').forEach(function (el) { if (targets.indexOf(el) === -1) targets.push(el); });
 
   function reveal(el) {
     el.classList.add('in');
@@ -111,6 +114,47 @@
   // Titre principal : animation dès le chargement
   var heroTitle = $('#hero-title');
   if (heroTitle) setTimeout(function () { heroTitle.classList.add('in'); }, 250);
+
+  /* ---------- Compteurs (section stats) ---------- */
+  $$('.stat b[data-to]').forEach(function (b) {
+    var to = parseFloat(b.getAttribute('data-to')) || 0;
+    var suf = b.getAttribute('data-suf') || '';
+    function set(v) { b.textContent = Math.round(v) + suf; }
+    if (reduce || !('IntersectionObserver' in window)) { set(to); return; }
+    var co = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return;
+      co.disconnect();
+      var t0 = performance.now(), dur = 1600;
+      requestAnimationFrame(function step(t) {
+        var p = Math.min(1, (t - t0) / dur);
+        set(to * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      });
+    }, { threshold: 0.5 });
+    co.observe(b);
+  });
+
+  /* ---------- Agrandissement des images de la vitrine ---------- */
+  $$('[data-zoom]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var img = $('img', btn);
+      if (!img) return;
+      var lb = document.createElement('div');
+      lb.className = 'lb';
+      lb.setAttribute('role', 'dialog');
+      lb.setAttribute('aria-modal', 'true');
+      lb.setAttribute('aria-label', img.alt || 'Image agrandie');
+      var big = document.createElement('img');
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      lb.appendChild(big);
+      document.body.appendChild(lb);
+      function onKey(e) { if (e.key === 'Escape') close(); }
+      function close() { lb.remove(); document.removeEventListener('keydown', onKey); btn.focus(); }
+      lb.addEventListener('click', close);
+      document.addEventListener('keydown', onKey);
+    });
+  });
 
   /* ---------- Défilement : progression, navigation, parallaxe ---------- */
   var prog = $('#prog');
