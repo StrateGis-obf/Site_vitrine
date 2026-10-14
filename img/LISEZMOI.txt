@@ -1,0 +1,6 @@
+Images a ajouter dans ce dossier (export depuis le Figma) :
+- hero.jpg  : photo de l'escalier (frame "Architecture et lumiere", 590 x 546 px)
+- story.jpg : photo de la table de reunion (frame "Lieu de reflexion", 536 x 432 px)
+Garde aussi tes fichiers existants : img/og-image.jpg et videos/StratePresent.mp4.
+Tant que les 2 photos manquent, un degrade dore anime s'affiche a leur place.
+Les illustrations des 6 services sont integrees au code (SVG animes) : aucune image a ajouter.
