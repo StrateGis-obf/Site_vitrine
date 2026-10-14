@@ -489,3 +489,66 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);bo
   .card-art svg{transform:none!important}
   .marq-track{width:auto;flex-wrap:wrap}
 }
+
+/* ============================================
+   LOGO + COLORATION "StrateGis"
+   ============================================ */
+
+/* Couleurs de la marque */
+.c-blue {
+  color: #2458a3; /* Bleu StrateGis */
+}
+.c-gold {
+  color: #c5a22c; /* Jaune/Or StrateGis */
+}
+
+/* Logo dans le header */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-logo {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1);
+}
+
+.brand:hover .brand-logo {
+  transform: rotate(-8deg) scale(1.06);
+}
+
+.brand-text {
+  font-weight: 600;
+  letter-spacing: -.01em;
+  line-height: 1;
+}
+
+/* Logo dans le footer */
+.foot-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -.01em;
+  margin: 0 0 6px;
+}
+
+.foot-logo .brand-logo {
+  width: 32px;
+  height: 32px;
+}
+
+/* Version sombre (si le footer est sur fond sombre) */
+.foot .c-blue {
+  color: #6fa3e8; /* Bleu plus clair pour fond sombre */
+}
+.foot .c-gold {
+  color: #e6cf7a; /* Or plus clair pour fond sombre */
+}
